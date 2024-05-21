@@ -9,6 +9,7 @@ var senha = document.querySelector("#inputPassword");
 var passStrengthMeter = document.querySelector("#passStrengthMeter");
 var senhaHelp = document.querySelector("#inputPasswordHelp");
 var result = document.querySelector("#inputResult");
+var senhaResult = document.querySelector("#senhaResult");
 
 /*declarando o evento listener para o campos de texto do form. 
 Uma vez o foco do campo inputName mude, será chamada a função validarNome*/
@@ -147,14 +148,14 @@ function validarSenha(e) {
     passStrengthMeter.value = forca;
 
     if (forca <= 20) {
-      result.textContent = "Força da Senha: Fraca";
-      result.style.color = "red";
+      senhaResult.textContent = "Força da Senha: Fraca";
+      senhaResult.style.color = "red";
     } else if (forca > 20 && forca <= 30) {
-      result.textContent = "Força da Senha: Moderada";
-      result.style.color = "orenge";
+      senhaResult.textContent = "Força da Senha: Moderada";
+      senhaResult.style.color = "orenge";
     } else {
-      result.textContent = "Força da Senha: Forte";
-      result.style.color = "green";
+      senhaResult.textContent = "Força da Senha: Forte";
+      senhaResult.style.color = "green";
     }
 
     return false;
@@ -169,14 +170,14 @@ function validarSenha(e) {
     passStrengthMeter.value = forca;
 
     if (forca <= 20) {
-      result.textContent = "Força da Senha: Fraca";
-      result.style.color = "red";
+      senhaResult.textContent = "Força da Senha: Fraca";
+      senhaResult.style.color = "red";
     } else if (forca > 20 && forca <= 30) {
-      result.textContent = "Força da Senha: Moderada";
-      result.style.color = "orenge";
+      senhaResult.textContent = "Força da Senha: Moderada";
+      senhaResult.style.color = "orenge";
     } else {
-      result.textContent = "Força da Senha: Forte";
-      result.style.color = "green";
+      senhaResult.textContent = "Força da Senha: Forte";
+      senhaResult.style.color = "green";
     }
 
     return true;
@@ -203,9 +204,12 @@ function cadastrarUsuario(e) {
   if (!isEmailValid) console.log(" - emailHelp: ", emailHelp.textContent)
   console.log("isYearValid", isYearValid)
   if (!isYearValid) console.log(" - anoHelp: ", anoHelp.textContent)
+
   if (isNameValid && isYearValid && isEmailValid && isPasswordValid) {
-    console.log("Todas as Validações foram passadas");
+    result.textContent = "Cadastro válido"
+    result.style.color = "green";
   } else {
-    console.log("Validação falhou");
+    result.textContent = "Cadastro inválido"
+    result.style.color = "red";
   }
 }
